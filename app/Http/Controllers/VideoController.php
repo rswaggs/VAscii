@@ -45,6 +45,12 @@ class VideoController extends Controller
             ->withSuccess('Video succesfully uploaded!');
     }
 
+    public function destroy(Video $video) {
+        $video->delete();
+
+        return redirect()->back()->withSuccess('Successfully deleted video');
+    }
+
     public function preview(Video $video) {
         return view('video._preview')
             ->withVideo($video);

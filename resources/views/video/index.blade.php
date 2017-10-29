@@ -27,8 +27,8 @@
                 </div>
             </div>
         </div>
-        <div class="media-list is-grid pb-50" data-plugin="animateList" data-animate="fade"
-             data-child="li">
+        <div class="media-list is-grid" data-plugin="animateList" data-animate="fade"
+             data-child="li" style="padding-bottom: 400px">
             <ul class="blocks blocks-100 blocks-xxl-4 blocks-xl-3 blocks-lg-3 blocks-md-2 blocks-sm-2"
                 data-plugin="animateList" data-child=">li">
                 @each('video._list', $videos, 'video')
