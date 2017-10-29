@@ -21,11 +21,13 @@ Updated: October 26th 2017
     - Mbstring
     - Tokenizer
     - XML
+* MySQL
 * [Composer](https://getcomposer.org)
     - Package manager for PHP, follow instructions on website
 * [Node](https://nodejs.org/en/)
     - We only need Node for NPM (node package manager), which we will use for front end asset compilation. 
-    
+* FFmpeg [https://www.ffmpeg.org]
+
  **Alternatively:** I highly recommend simply running the project through a VM pre-configured with all the software we will possible need
  The framework we are using, Laravel, has a pre-configured VM that is very easy to set up and run. [See here for details on installing and using](https://laravel.com/docs/5.5/homestead)
  
@@ -38,12 +40,13 @@ Updated: October 26th 2017
  2. Run `composer install`
  3. Make a copy of .env.example with the filename of just .env
  4. Run `php artisan key:generate`
- 5. Fill in relevant database information (if you are homestead, the defaults are fine)
+ 5. Fill in relevant database information in the .env (if you are homestead, the defaults are fine)
  6. Run `php artisan migrate`
  7. Run `php artisan db:seed`
  8. Run `npm install`
  9. Copy the theme files into the root directory (should be in a folder named theme). Ask Danny for a link to the theme files.
  10. Run `npm run development`
+ 11. Add the paths to the ffmpeg binaries (ffmpeg and ffprobe) into your .env
  
  If you are not using Homestead and need a quick server:
  
