@@ -39,4 +39,9 @@ class VideoController extends Controller
         return redirect()->route('video.index')
             ->withSuccess('Video succesfully uploaded!');
     }
+
+    public function preview(Video $video) {
+        return view('video._preview')
+            ->withVideo($video);
+    }
 }

@@ -4,10 +4,11 @@ Auth::routes();
 
 Route::middleware(['auth'])->group(function(){
     Route::resource('video', 'VideoController');
+    Route::get('video/preview/{video}', 'VideoController@preview')
+        ->name('video.preview');
 
     Route::get('/', function () {
-        return view('welcome')
-            ->withMedia(range(1,6));
+        return redirect()->route('video.index');
     });
 
     Route::get('info/{id}', function($id) {
