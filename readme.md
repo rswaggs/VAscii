@@ -47,6 +47,7 @@ Updated: October 26th 2017
  9. Copy the theme files into the root directory (should be in a folder named theme). Ask Danny for a link to the theme files.
  10. Run `npm run development`
  11. Add the paths to the ffmpeg binaries (ffmpeg and ffprobe) into your .env
+ 12. Download the [youtube-dl](http://rg3.github.io/youtube-dl/download.html) and add it's path to environment variables. Then, Run `composer require norkunas/youtube-dl-php`. It requires the Python interpreter, version 2.6, 2.7, or 3.2+, and it is not platform specific.
  
  If you are not using Homestead and need a quick server:
  

@@ -16,3 +16,4 @@ yarn-error.log
 /public/js
 /public/uploads
 /storage/uploads
+/ffmpeg-3.4

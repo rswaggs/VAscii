@@ -10,4 +10,8 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/', function () {
         return redirect()->route('video.index');
     });
+
+    Route::get('/community', function () {
+        return redirect()->route('video.community');
+    });
 });
