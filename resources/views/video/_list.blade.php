@@ -15,7 +15,7 @@
                 <div class="dropdown-menu dropdown-menu-right" role="menu">
                     <a class="dropdown-item" href="{{ route('video.show', $video->id) }}"><i class="icon wb-play" aria-hidden="true"></i>Play</a>
                     <a class="dropdown-item" href="javascript:void(0)"><i class="icon wb-pencil" aria-hidden="true"></i>Edit</a>
-                    <a class="dropdown-item" href="{{ url($video->path) }}" aria-hidden="true"></i>Download</a>
+                    <a class="dropdown-item" href="{{ url($video->path) }}"><i class="icon wb-download" aria-hidden="true"></i>Download</a>
                     <a class="dropdown-item" href="javascript:void(0)"><i class="icon wb-trash" aria-hidden="true"></i>Delete</a>
                 </div>
             </div>
