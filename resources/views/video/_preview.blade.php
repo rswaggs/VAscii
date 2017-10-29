@@ -1,4 +1,4 @@
-<header class="slidePanel-header overlay" style="background-image: url('/img/{{ $image }}.jpg');"
+<header class="slidePanel-header overlay" style="background-image: url('{{ $video->thumbnail }}');background-size: 100%;"
         data-method="scroll" data-min="50">
     <div class="overlay-top overlay-panel overlay-background">
         <div class="slidePanel-actions btn-group" aria-label="actions" role="group">
@@ -7,7 +7,7 @@
             <button type="button" class="btn btn-pure btn-inverse slidePanel-close icon wb-close"
                     aria-hidden="true"></button>
         </div>
-        <h4>Lorem Ipsum</h4>
+        <h4>{{ $video->title }}</h4>
     </div>
 </header>
 <div class="slidePanel-inner">
@@ -21,11 +21,7 @@
             </div>
         </div>
         <div class="media-content">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam.
-                Aliquam sollicitudin venenatis ipsum ac feugiat. Vestibulum ullamcorper
-                sodales nisi nec condimentum. Mauris convallis mauris at pellentesque volutpat.
-                Phasellus at ultricies neque, quis malesuada augue. Donec eleifend condimentum
-                nisl eu consectetur. </p>
+            <p>{!! $video->description !!}</p>
         </div>
     </section>
 </div>

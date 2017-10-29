@@ -96,7 +96,8 @@ mix
         themeStyleDir + 'assets/js/BaseApp.js',
         themeStyleDir + 'assets/js/App/Media.js',
         themeStyleDir + 'assets/examples/js/apps/media.js',
-        'resources/assets/js/logout.js'
+        'resources/assets/js/logout.js',
+        'resources/assets/js/deleteVideo.js'
     ], 'public/js/page.js')
 
     .copy(themeDir + 'global/fonts/web-icons/', 'public/css')
