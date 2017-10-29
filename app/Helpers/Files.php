@@ -17,15 +17,16 @@ class Files
         $filename = $file->getClientOriginalName();
         $filename = str_replace(' ', '', $filename);
 
-        $uploadFolder = 'uploads/' . $path . '/';
-        $path = public_path($uploadFolder . time() . Str::random(20));
+        $uploadFolder = '/uploads/' . $path . '/';
+        $relative = $uploadFolder . time() . Str::random(20);
+        $path = public_path($relative);
 
         $newFileObject = $file->move($path, $filename);
 
         $size = 0;
         $type = Detector::detectByFilename($newFileObject->getRealPath())[2];
 
-        return [$filename, $path, $size, $type];
+        return [$filename, $path, $size, $type, $relative];
     }
 
 }
