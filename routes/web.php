@@ -10,12 +10,4 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/', function () {
         return redirect()->route('video.index');
     });
-
-    Route::get('info/{id}', function($id) {
-        return view('info')->withImage($id);
-    });
-
-    Route::get('player', function() {
-        return view('player');
-    });
 });

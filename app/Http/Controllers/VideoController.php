@@ -22,6 +22,11 @@ class VideoController extends Controller
         return view('video.create');
     }
 
+    public function show(Video $video) {
+        return view('video.show')
+            ->withVideo($video);
+    }
+
     public function store(Request $request) {
         [$filename, $path, $size, $type, $relative] = Files::upload($request->file('upload'), 'videos');
         $fullPath = $path . '/' . $filename;
