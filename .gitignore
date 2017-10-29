@@ -14,3 +14,5 @@ yarn-error.log
 /theme
 /public/css
 /public/js
+/public/uploads
+/storage/uploads
