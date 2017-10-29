@@ -27,6 +27,16 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function videos()
+    {
+        return $this->hasMany(Video::class);
+    }
+
+    public function favourites()
+    {
+        return $this->belongsToMany(Video::class, 'favourites')->withTimestamps();
+    }
+
     public function gravatar($size = 80) {
         $hash = md5(strtolower(trim($this->email)));
         return 'https://www.gravatar.com/avatar/' . $hash . '?d=identicon&s=' . $size;
