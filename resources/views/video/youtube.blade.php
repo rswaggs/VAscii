@@ -1,13 +1,11 @@
-<!-- Copy of create, just trying to clean the webpage up. -->
-
 @extends('layouts.main')
 
 @section('content')
     <div class="page-header">
         <h1 class="page-title">Upload a New Video</h1>
     </div>
-    // YouTube download logic, move to separate view later
-    <form method="post" action="{{ route('video.YTstore') }}">
+
+    <form method="post" action="{{ route('youtube.store') }}">
         <div class="form-group col-md-12">
             <label class="form-control-label" for="yt-link">Convert YouTube video</label>
             <input type="text" class="form-control" id="yt-link" name="yt-link"
