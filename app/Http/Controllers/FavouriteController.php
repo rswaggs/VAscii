@@ -8,7 +8,6 @@ class FavouriteController extends Controller
     public function index()
     {
         $videos = Auth::user()->favourites()->favouritedByUser(Auth::id())->get();
-        dd($videos);
         return view('video.index')
             ->withVideos($videos)
             ->withTitle('Your Favourite Videos');
