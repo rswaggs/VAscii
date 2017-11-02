@@ -12,19 +12,9 @@ use Image;
 
 class VideoController extends Controller
 {
-	public function favourite(Video $video)
-    {
-        return Auth::user()->favourites()->attach($video);
-    }
-
-    public function unfavourite(Video $video)
-    {
-        return Auth::user()->favourites()->detach($video);
-    }
-
     public function index()
     {
-        $videos = Auth::user()->videos;
+        $videos = Auth::user()->videos()->favouritedByUser(Auth::id())->get();
         return view('video.index')
             ->withVideos($videos)
             ->withTitle('Your Videos');

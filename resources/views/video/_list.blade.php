@@ -14,6 +14,13 @@
                           data-animation="scale-up"></span>
                 <div class="dropdown-menu dropdown-menu-right" role="menu">
                     <a class="dropdown-item" href="{{ route('video.show', $video->id) }}"><i class="icon wb-play" aria-hidden="true"></i>Play</a>
+
+                    @if($video->favouritedBy->count())
+                        <a class="dropdown-item" style="color: #D6494B" href="{{ route('favourite.toggle', $video->id) }}"><i class="icon wb-heart" aria-hidden="true"></i>Favourited</a>
+                    @else
+                        <a class="dropdown-item" href="{{ route('favourite.toggle', $video->id) }}"><i class="icon wb-heart" aria-hidden="true"></i>Favourite</a>
+                    @endif
+
                     @if(Auth::id() === $video->user_id)
                         <a class="dropdown-item" href="javascript:void(0)"><i class="icon wb-pencil" aria-hidden="true"></i>Edit</a>
                     @endif
@@ -27,7 +34,7 @@
                 </div>
             </div>
             <div class="title">{{ $video->title }}</div>
-            <div class="time">{{ $video->created_at->diffForHumans() }}</div>
+            <div class="time">{{ $video->created_at->diffForHumans() }} - By {{ $video->user->name   }}</div>
             <div class="media-item-actions btn-group">
                 <button class="btn btn-icon btn-pure btn-default" data-original-title="Edit" data-toggle="tooltip"
                         data-container="body" data-placement="top" data-trigger="hover"
