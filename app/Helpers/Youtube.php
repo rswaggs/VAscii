@@ -17,7 +17,7 @@ class Youtube
      */
     public static function import($link, $title, $path = 'misc'): array
     {
-        $uploadFolder = '/uploads/' . $path . '/';
+        $uploadFolder = 'uploads/' . $path . '/';
         $relative = $uploadFolder . time() . Str::random(20);
         $path = public_path($relative);
 
@@ -26,11 +26,15 @@ class Youtube
             'format' => 'bestvideo[ext=mp4]',
         ]);
 
-        $dl->setDownloadPath($path);
+        $dl->setDownloadPath(public_path());
 
         try {
             $video = $dl->download($link);
             $file = $video->getFile(); // \SplFileInfo instance of downloaded file
+            if(!file_exists($path)) {
+                mkdir($path, 0755, true);
+            }
+            rename(public_path($file->getFilename()), $path . '/' . $file->getFilename());
             // http://php.net/manual/en/class.splfileinfo.php
         } catch (NotFoundException $e) {
             dd('Video not found');
@@ -39,7 +43,7 @@ class Youtube
         } catch (CopyrightException $e) {
             dd('The YouTube account associated with this video has been terminated due to multiple third-party notifications of copyright infringement');
         } catch (\Exception $e) {
-            dd('Failed to download');
+            dd('Failed to download: ' . $e->getMessage());
         }
 
         $title = $title ?: $video->getTitle();

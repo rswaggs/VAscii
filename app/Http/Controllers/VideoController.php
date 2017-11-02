@@ -8,6 +8,7 @@ use App\Video;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Thumbnail;
+use Image;
 
 class VideoController extends Controller
 {
@@ -51,6 +52,9 @@ class VideoController extends Controller
         $fullPath = $path . '/' . $filename;
         $thumbnailName = 'thumbnail.png';
         $thumbnailSuccess = Thumbnail::getThumbnail($fullPath, $path, $thumbnailName);
+        $image = Image::make($path . '/' . $thumbnailName);
+        $image->fit(env('THUMBNAIL_IMAGE_WIDTH', 960), env('THUMBNAIL_IMAGE_HEIGHT', 640));
+        $image->save();
 
         $video = new Video();
         $video->path = $relative . '/' . $filename;
@@ -70,11 +74,14 @@ class VideoController extends Controller
         $title = $request->input('title', '');
 
         [$file, $title, $relativePath] = Youtube::import($link, $title, 'videos');
+        $path = $relativePath . '/' . $file->getFilename();
 
         $thumbnailName = 'thumbnail.png';
-        $thumbnailSuccess = Thumbnail::getThumbnail(storage_path($relativePath) . '/' . $file->getFilename(), $relativePath, $thumbnailName);
+        $thumbnailSuccess = Thumbnail::getThumbnail(public_path($path), $relativePath, $thumbnailName);
+        $image = Image::make($relativePath . '/' . $thumbnailName);
+        $image->fit(env('THUMBNAIL_IMAGE_WIDTH', 960), env('THUMBNAIL_IMAGE_HEIGHT', 640));
+        $image->save();
 
-        // Create db entry
         $video = new Video();
         $video->path = $path;
         $video->title = $title;

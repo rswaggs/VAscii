@@ -10,7 +10,7 @@
                     <h5 class="page-aside-title">General</h5>
                     <div class="list-group">
                         <a class="list-group-item list-group-item-action" href="/"><i class="icon wb-camera" aria-hidden="true"></i>Videos Overview</a>
-                        <a class="list-group-item" href="{{ route('youtube.create') }}"><i class="fa fa-youtube-play"  aria-hidden="true"></i>Upload YouTube Video</a>
+                        <a class="list-group-item" href="{{ route('youtube.create') }}"><i class="icon bd-youtube"  aria-hidden="true"></i>Upload YouTube Video</a>
                         <a class="list-group-item" href="{{ route('video.create') }}"><i class="icon wb-upload" aria-hidden="true"></i>Upload Manager</a>
                     </div>
                 </section>
