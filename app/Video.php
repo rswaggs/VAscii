@@ -26,4 +26,12 @@ class Video extends Model
             $query->where('users.id', $userId);
         }]);
     }
+
+    // TODO: Use a presenter
+    public function safePath()
+    {
+        $current = str_replace("'", "\\'", $this->path);
+        return str_replace(" ", "\\ ", $current);
+    }
+
 }

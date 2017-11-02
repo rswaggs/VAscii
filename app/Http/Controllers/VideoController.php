@@ -86,6 +86,7 @@ class VideoController extends Controller
 
     public function destroy(Video $video)
     {
+        $video->favouritedBy()->detach();
         $video->delete();
 
         return redirect()->back()->withSuccess('Successfully deleted video');
