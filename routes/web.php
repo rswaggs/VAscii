@@ -8,6 +8,11 @@ Route::middleware(['auth'])->group(function(){
         ->name('video.preview');
     Route::get('community', 'CommunityController@index')
         ->name('community');
+    Route::get('favourite', 'FavouriteController@index')
+        ->name('favourite.index');
+    Route::get('favourite/{video}', 'FavouriteController@toggleFavourite')
+        ->name('favourite.toggle');
+
     Route::get('youtube', 'VideoController@youtube')
         ->name('youtube.create');
     Route::post('youtube', 'VideoController@youtubeImport')

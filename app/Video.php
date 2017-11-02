@@ -19,4 +19,11 @@ class Video extends Model
     {
         return $this->belongsToMany(Tag::class)->withTimestamps();
     }
+
+    public function scopeFavouritedByUser($query, $userId)
+    {
+        return $query->with(['favouritedBy' => function($query) use ($userId) {
+            $query->where('users.id', $userId);
+        }]);
+    }
 }

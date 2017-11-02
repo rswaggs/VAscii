@@ -14,6 +14,7 @@
                           data-animation="scale-up"></span>
                 <div class="dropdown-menu dropdown-menu-right" role="menu">
                     <a class="dropdown-item" href="{{ route('video.show', $video->id) }}"><i class="icon wb-play" aria-hidden="true"></i>Play</a>
+                    <a class="dropdown-item" href="{{ route('favourite.toggle', $video->id) }}"><i class="icon wb-heart" aria-hidden="true"></i>Favourite</a>
                     @if(Auth::id() === $video->user_id)
                         <a class="dropdown-item" href="javascript:void(0)"><i class="icon wb-pencil" aria-hidden="true"></i>Edit</a>
                     @endif

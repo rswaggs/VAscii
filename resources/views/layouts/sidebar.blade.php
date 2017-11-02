@@ -17,7 +17,7 @@
                 <section class="page-aside-section">
                     <h5 class="page-aside-title">Filter</h5>
                     <div class="list-group">
-                        <a class="list-group-item" href="javascript:void(0)"><i class="icon wb-star" aria-hidden="true"></i>Favourites</a>
+                        <a class="list-group-item" href="{{ route('favourite.index') }}"><i class="icon wb-star" aria-hidden="true"></i>Favourites</a>
                     </div>
                 </section>
             </div>
