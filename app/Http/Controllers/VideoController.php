@@ -96,4 +96,13 @@ class VideoController extends Controller
         return view('video._preview')
             ->withVideo($video);
     }
+
+    public function search(Request $request)
+    {
+        $term = $request->input('search');
+        $videos = Video::where('title', 'like', "%$term%")->favouritedByUser(Auth::id())->get();
+        return view('video.index')
+            ->withVideos($videos)
+            ->withTitle('Search for "' . $term . '"');
+    }
 }

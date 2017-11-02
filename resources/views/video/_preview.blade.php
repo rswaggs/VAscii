@@ -1,4 +1,4 @@
-<header class="slidePanel-header overlay" style="background-image: url('{{ $video->thumbnail }}');background-size: 100%;"
+<header class="slidePanel-header overlay" style="background-image: url('{{ url($video->thumbnail) }}');background-size: 100%;"
         data-method="scroll" data-min="50">
     <div class="overlay-top overlay-panel overlay-background">
         <div class="slidePanel-actions btn-group" aria-label="actions" role="group">

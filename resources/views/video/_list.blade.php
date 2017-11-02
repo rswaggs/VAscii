@@ -5,7 +5,7 @@
             <label for="media_1"></label>
         </div>
         <div class="image-wrap">
-            <img class="image img-rounded" src="{{ $video->thumbnail }}"
+            <img class="image img-rounded" src="{{ url($video->thumbnail) }}"
                  alt="...">
         </div>
         <div class="info-wrap">

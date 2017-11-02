@@ -4,10 +4,10 @@
     <div class="page-header">
         <h1 class="page-title">{{ $title }}</h1>
         <div class="page-header-actions">
-            <form>
+            <form method="post" action="{{ route('video.search') }}">
                 <div class="input-search input-search-dark">
                     <i class="input-search-icon wb-search" aria-hidden="true"></i>
-                    <input type="text" class="form-control" name="" placeholder="Search...">
+                    <input type="text" class="form-control" name="search" placeholder="Search...">
                 </div>
             </form>
         </div>
