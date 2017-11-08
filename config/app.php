@@ -182,6 +182,7 @@ return [
          * Plugins
          */
         Lakshmaji\Thumbnail\ThumbnailServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
     ],
 
@@ -237,6 +238,7 @@ return [
          */
 
         'Thumbnail' => Lakshmaji\Thumbnail\Facade\Thumbnail::class,
+        'Image' => Intervention\Image\Facades\Image::class,
 
     ],
 

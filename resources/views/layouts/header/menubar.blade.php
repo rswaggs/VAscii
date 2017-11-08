@@ -7,21 +7,21 @@
                 <ul class="site-menu" data-plugin="menu">
                     <li class="site-menu-category">General</li>
                     <li class="dropdown site-menu-item has-sub">
-                        <a href="javascript:void(0)">
+                        <a href="{{ route('home') }}">
                             <i class="site-menu-icon wb-home"></i>
-                            <a class="site-menu-title" href="/">Home</a>
+                            <span class="site-menu-title">Home</span>
                         </a>
                     </li>
                     <li class="dropdown site-menu-item has-sub">
-                        <a href="javascript:void(0)">
+                        <a href="{{ route('video.index') }}">
                             <i class="site-menu-icon wb-video"></i>
                             <span class="site-menu-title">Video Manager</span>
                         </a>
                     </li>
                     <li class="dropdown site-menu-item has-sub">
-                        <a href="javascript:void(0)">
+                        <a href="{{ route('community') }}">
                             <i class="site-menu-icon wb-gallery"></i>
-                            <a class="site-menu-title" href="/community">Community Videos</a>
+                            <span class="site-menu-title">Community Videos</span>
                         </a>
                     </li>
                     {{--<li class="dropdown site-menu-item has-sub">--}}
