@@ -184,6 +184,9 @@ return [
         Lakshmaji\Thumbnail\ThumbnailServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
 
+        # Added for X-Forward headers
+        'Fideloper\Proxy\TrustedProxyServiceProvider',
+
     ],
 
     /*
