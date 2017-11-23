@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\ProcessVideo;
 use App\Helpers\Files;
 use App\Helpers\Youtube;
 use App\Video;
@@ -52,7 +53,10 @@ class VideoController extends Controller
         $video->description = $request->input('description');
         $video->thumbnail = $relative . '/' . $thumbnailName;
 
-        Auth::user()->videos()->save($video);
+        # Dispatch to job queue, and save/upload to database/filesystem
+        dispatch(new ProcessVideo($video));
+
+        #Auth::user()->videos()->save($video);
 
         return redirect()->route('video.index')
             ->withSuccess('Video succesfully uploaded!');
