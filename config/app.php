@@ -185,7 +185,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
 
         # Added for X-Forward headers
-        'Fideloper\Proxy\TrustedProxyServiceProvider',
+        Fideloper\Proxy\TrustedProxyServiceProvider::class
 
     ],
 
