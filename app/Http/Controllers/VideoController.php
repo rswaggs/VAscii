@@ -8,6 +8,7 @@ use App\Helpers\Youtube;
 use App\Video;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Thumbnail;
 use Image;
 
@@ -54,9 +55,12 @@ class VideoController extends Controller
         $video->thumbnail = $relative . '/' . $thumbnailName;
 
         # Dispatch to job queue, and save/upload to database/filesystem
-        dispatch(new ProcessVideo($video));
+//        dispatch(new ProcessVideo($video));
 
         #Auth::user()->videos()->save($video);
+
+        $s3 = Storage::disk('s3');
+        $s3->put($video->path, file_get_contents($fullPath));
 
         return redirect()->route('video.index')
             ->withSuccess('Video succesfully uploaded!');
@@ -77,7 +81,7 @@ class VideoController extends Controller
         $image->save();
 
         $video = new Video();
-        $video->path = $path;
+        $video->path = $relative . '/' . $filename;
         $video->title = $title;
         $video->description = $request->input('description');
         $video->thumbnail = $relativePath . '/' . $thumbnailName;

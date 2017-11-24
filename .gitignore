@@ -17,3 +17,9 @@ yarn-error.log
 /public/uploads
 /storage/uploads
 /ffmpeg-3.4
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+.ebextensions/*
